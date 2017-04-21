@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Microservices.Demo2017
+namespace Microservices.Services.Todo.Api
 {
     public class Startup
     {
@@ -19,6 +19,10 @@ namespace Microservices.Demo2017
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
             Configuration = builder.Build();
         }
 
@@ -27,6 +31,9 @@ namespace Microservices.Demo2017
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add todo api services
+            services.AddTodoServices(Configuration);
+
             // Add framework services.
             services.AddMvc();
         }

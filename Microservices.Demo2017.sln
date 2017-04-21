@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.Demo2017", "Microservices.Demo2017\Microservices.Demo2017.csproj", "{33613EFE-07C5-4C19-93B4-947C14D79216}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B3F3792-E930-42E4-9F90-96B70BB149E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{34A95F00-876B-4383-B115-569C854640C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{15BF20BD-6E9B-4352-B825-4344249A4082}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{D965A866-518F-4F59-B3F3-F7FB9ACABFDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.Services.Todo.Api", "src\Services\Microservices.Services.Todo.Api\Microservices.Services.Todo.Api.csproj", "{0D1650EA-B581-4B14-B022-3A55B863AB0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aggregators", "Aggregators", "{AC536C27-A8EF-4AF2-A15E-E13E83386C86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.Services.Todo.Api.Contracts", "src\Contracts\Microservices.Services.Todo.Api.Contracts\Microservices.Services.Todo.Api.Contracts.csproj", "{07987CD9-E647-4232-8014-130CE10E86C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +23,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{33613EFE-07C5-4C19-93B4-947C14D79216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33613EFE-07C5-4C19-93B4-947C14D79216}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33613EFE-07C5-4C19-93B4-947C14D79216}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33613EFE-07C5-4C19-93B4-947C14D79216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1650EA-B581-4B14-B022-3A55B863AB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1650EA-B581-4B14-B022-3A55B863AB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1650EA-B581-4B14-B022-3A55B863AB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1650EA-B581-4B14-B022-3A55B863AB0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07987CD9-E647-4232-8014-130CE10E86C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07987CD9-E647-4232-8014-130CE10E86C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07987CD9-E647-4232-8014-130CE10E86C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07987CD9-E647-4232-8014-130CE10E86C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{34A95F00-876B-4383-B115-569C854640C5} = {6B3F3792-E930-42E4-9F90-96B70BB149E9}
+		{15BF20BD-6E9B-4352-B825-4344249A4082} = {6B3F3792-E930-42E4-9F90-96B70BB149E9}
+		{D965A866-518F-4F59-B3F3-F7FB9ACABFDF} = {6B3F3792-E930-42E4-9F90-96B70BB149E9}
+		{0D1650EA-B581-4B14-B022-3A55B863AB0E} = {34A95F00-876B-4383-B115-569C854640C5}
+		{AC536C27-A8EF-4AF2-A15E-E13E83386C86} = {6B3F3792-E930-42E4-9F90-96B70BB149E9}
+		{07987CD9-E647-4232-8014-130CE10E86C9} = {D965A866-518F-4F59-B3F3-F7FB9ACABFDF}
 	EndGlobalSection
 EndGlobal

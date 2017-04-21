@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Microservices.Demo2017
+namespace Microservices.Services.Todo.Api
 {
     public class Program
     {
