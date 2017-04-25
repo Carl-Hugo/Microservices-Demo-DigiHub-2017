@@ -151,7 +151,7 @@ namespace Microservices.Todo.Boards.Api.Controllers
 
             // if the user is the board owner, queue the "sync operation".
             // This will remove all cards and associations to this board.
-            if (deletedEntity.OwnerId == userId)
+            if (deletedEntity.OwnerId == userId) // TODO: validate/rethink/refactor this logic if needed
             {
                 await deletedBoardQueue.AddMessageAsync(new TableMessage
                 {

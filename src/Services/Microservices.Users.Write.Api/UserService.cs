@@ -26,7 +26,7 @@ namespace Microservices.Users.Write.Api
             // Delete the user
             var removedEntity = await _userRepository.RemoveAsync(UserEntity.DefaultPartitionKey, userId);
 
-            // Queue the "sync operation"
+            // Queue the "user deleted" message
             await _queuesService.UserDeletedQueue.AddMessageAsync(new TableMessage
             {
                 PartitionKey = removedEntity.PartitionKey,
@@ -52,7 +52,7 @@ namespace Microservices.Users.Write.Api
             // Create the user
             var insertedEntity = await _userRepository.InsertOrReplaceAsync(entity);
 
-            // Queue the "sync operation"
+            // Queue the "user created" message
             await _queuesService.UserCreatedQueue.AddMessageAsync(new TableMessage
             {
                 PartitionKey = insertedEntity.PartitionKey,
@@ -72,7 +72,7 @@ namespace Microservices.Users.Write.Api
             // Update the user
             var updatedEntity = await _userRepository.InsertOrMergeAsync(entity);
 
-            // Queue the "sync operation"
+            // Queue the "user updated" message
             await _queuesService.UserUpdatedQueue.AddMessageAsync(new TableMessage
             {
                 PartitionKey = updatedEntity.PartitionKey,

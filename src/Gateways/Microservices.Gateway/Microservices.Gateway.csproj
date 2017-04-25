@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <UserSecretsId>1c61de6a-4e42-4551-a4a7-d1c94e10fd3f</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ForEvolve.DynamicInternalServerError.Swagger" Version="1.0.0-upsilon-00005" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="1.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Contracts\Microservices.Gateway.Contracts\Microservices.Gateway.Contracts.csproj" />
+    <ProjectReference Include="..\..\Contracts\Microservices.Todo.Boards.Api.Contracts\Microservices.Todo.Boards.Api.Contracts.csproj" />
+    <ProjectReference Include="..\..\Contracts\Microservices.Todo.Cards.Api.Contracts\Microservices.Todo.Cards.Api.Contracts.csproj" />
+    <ProjectReference Include="..\..\Contracts\Microservices.Users.Api.Contracts\Microservices.Users.Api.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
