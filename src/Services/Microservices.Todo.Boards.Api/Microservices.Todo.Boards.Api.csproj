@@ -11,7 +11,7 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ForEvolve.Azure" Version="0.1.0-omicron-00016" />
+    <PackageReference Include="ForEvolve.Azure" Version="0.1.0-omicron-00019" />
     <PackageReference Include="ForEvolve.DynamicInternalServerError" Version="1.0.0-upsilon-00005" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
