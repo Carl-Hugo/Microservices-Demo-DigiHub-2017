@@ -24,6 +24,7 @@ namespace Microservices.Todo.Boards.Api.Controllers
 
         // GET api/todo/boards/some-user-email@adress.com
         [HttpGet("{userId}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Board>))]
         public async Task<IActionResult> GetAsync(string userId)
         {
             // Get the data
@@ -43,6 +44,8 @@ namespace Microservices.Todo.Boards.Api.Controllers
 
         // GET api/todo/boards/some-user-email@adress.com/some-board-id
         [HttpGet("{userId}/{boardId}")]
+        [ProducesResponseType(200, Type = typeof(Board))]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> GetAsync(string userId, string boardId)
         {
             // Get the data
@@ -68,6 +71,8 @@ namespace Microservices.Todo.Boards.Api.Controllers
 
         // POST api/todo/boards
         [HttpPost("{userId}")]
+        [ProducesResponseType(201, Type = typeof(Board))]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> PostAsync(string userId, [FromBody]Board board)
         {
             // Validate input and return 400 Bad Request if invalid
@@ -110,6 +115,8 @@ namespace Microservices.Todo.Boards.Api.Controllers
 
         // PUT api/todo/boards
         [HttpPut("{userId}")]
+        [ProducesResponseType(200, Type = typeof(Board))]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> PutAsync(string userId, [FromBody]Board board)
         {
             // Validate input and return 400 Bad Request if invalid
@@ -144,6 +151,7 @@ namespace Microservices.Todo.Boards.Api.Controllers
 
         // DELETE api/todo/boards/some-board-id
         [HttpDelete("{userId}/{boardId}")]
+        [ProducesResponseType(200, Type = typeof(Board))]
         public async Task<IActionResult> DeleteAsync(string userId, string boardId, [FromServices]ITableMessageQueueStorageRepository deletedBoardQueue)
         {
             // Delete the data

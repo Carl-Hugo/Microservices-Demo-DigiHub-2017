@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using ForEvolve.Azure.Storage.Table;
 using ForEvolve.Azure.Storage.Queue;
+using AutoMapper;
 
 namespace Microservices.Users.Write.Api
 {
@@ -35,6 +36,15 @@ namespace Microservices.Users.Write.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // AutoMapper
+            services.AddSingleton(serviceProvider =>
+            {
+                return new MapperConfiguration(cfg =>
+                {
+                    cfg.AddProfile(new UsersMapperProfile());
+                }).CreateMapper();
+            });
+
             // Add todo api services
             services.AddUsersWriteServices(Configuration);
 

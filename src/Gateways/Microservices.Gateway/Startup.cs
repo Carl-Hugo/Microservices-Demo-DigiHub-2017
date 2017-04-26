@@ -94,7 +94,7 @@ namespace Microservices.Gateway
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Microservices DigiHub Démo 2017", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Microservices Gateway DigiHub Démo 2017", Version = "v1" });
                 c.AddDynamicInternalServerError();
             });
         }
@@ -117,7 +117,7 @@ namespace Microservices.Gateway
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Microservices DigiHub Démo 2017 API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Microservices Gateway DigiHub Démo 2017 API");
             });
         }
     }

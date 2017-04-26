@@ -22,6 +22,7 @@ namespace Microservices.Todo.Cards.Api.Controllers
 
         // GET api/todo/cards/some-board-id
         [HttpGet("{boardId}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Card>))]
         public async Task<IActionResult> GetAsync(string boardId)
         {
             var cards = await _cardService.ReadAllAsync(boardId);
@@ -30,6 +31,8 @@ namespace Microservices.Todo.Cards.Api.Controllers
 
         // GET api/todo/cards/some-board-id/some-card-id
         [HttpGet("{boardId}/{cardId}")]
+        [ProducesResponseType(200, Type = typeof(Card))]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> GetAsync(string boardId, string cardId)
         {
             var card = await _cardService.ReadOneAsync(boardId, cardId);
@@ -42,6 +45,8 @@ namespace Microservices.Todo.Cards.Api.Controllers
 
         // POST api/todo/cards/some-board-id
         [HttpPost]
+        [ProducesResponseType(201, Type = typeof(Card))]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> PostAsync([FromBody]Card card)
         {
             // Validate input and return 400 Bad Request if invalid
@@ -64,6 +69,8 @@ namespace Microservices.Todo.Cards.Api.Controllers
 
         // PUT api/todo/cards/some-board-id/some-card-id
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(Card))]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> PutAsync([FromBody]Card card)
         {
             // Validate input and return 400 Bad Request if invalid
@@ -78,6 +85,7 @@ namespace Microservices.Todo.Cards.Api.Controllers
 
         // DELETE api/todo/cards/some-board-id/some-card-id
         [HttpDelete("{boardId}/{cardId}")]
+        [ProducesResponseType(200, Type = typeof(Card))]
         public async Task<IActionResult> DeleteAsync(string boardId, string cardId)
         {
             var deletedCard = await _cardService.DeleteAsync(boardId, cardId);

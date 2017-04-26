@@ -21,6 +21,8 @@ namespace Microservices.Users.Write.Api
 
         // POST api/values
         [HttpPost]
+        [ProducesResponseType(201, Type = typeof(User))]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> PostAsync([FromBody]User user)
         {
             if (!ModelState.IsValid)
@@ -38,6 +40,8 @@ namespace Microservices.Users.Write.Api
 
         // PUT api/values/5
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(User))]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> PutAsync([FromBody]User user)
         {
             if (!ModelState.IsValid)
@@ -50,6 +54,7 @@ namespace Microservices.Users.Write.Api
 
         // DELETE api/values/5
         [HttpDelete("{userId}")]
+        [ProducesResponseType(200, Type = typeof(User))]
         public async Task<IActionResult> DeleteAsync(string userId)
         {
             var deletedUser = await _userService.DeleteAsync(userId);

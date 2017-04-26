@@ -24,15 +24,6 @@ namespace Microservices.Users.Write.Api
                 TableName = configuration.GetValue<string>("UsersApi:Storage:UsersWriteTableName")
             };
 
-            // AutoMapper
-            services.AddSingleton(serviceProvider =>
-            {
-                return new MapperConfiguration(cfg =>
-                {
-                    cfg.AddProfile(new UsersMapperProfile());
-                }).CreateMapper();
-            });
-
             // User services
             services.AddSingleton<IUserOperationQueuesService>(serviceProvider =>
             {

@@ -15,15 +15,6 @@ namespace Microservices.Todo.Cards.Api
     {
         public static void AddTodoCardsServices(this IServiceCollection services, IConfigurationRoot configuration)
         {
-            // AutoMapper
-            services.AddSingleton(serviceProvider =>
-            {
-                return new MapperConfiguration(cfg =>
-                {
-                    cfg.AddProfile(new CardsMapperProfile());
-                }).CreateMapper();
-            });
-
             // Table storage settings
             var tableStorageSettings = new TableStorageSettings
             {
