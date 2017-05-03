@@ -47,3 +47,6 @@ If there is interest in this project, I could make this evolve, and if you want 
 
 If there are interests in the libraries I am building (the `ForEvolve.*` packages), feel free to contact me. 
 And again, help are always welcome.
+
+### Open source projects
+For an up to date list of `ForEvolve.*` open source projects, see [ForEvolve Toc](https://github.com/ForEvolve/Toc).
