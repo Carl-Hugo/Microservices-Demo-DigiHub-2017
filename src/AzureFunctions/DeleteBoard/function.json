@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "deleteBoardMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "deleteboard",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING"
+    },
+    {
+      "type": "table",
+      "name": "boardsTable",
+      "tableName": "Boards",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

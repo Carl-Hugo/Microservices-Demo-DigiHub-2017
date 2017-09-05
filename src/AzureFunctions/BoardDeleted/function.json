@@ -1,0 +1,40 @@
+{
+  "bindings": [
+    {
+      "name": "deletedBoard",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "boarddeleted",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING"
+    },
+    {
+      "type": "table",
+      "name": "boardsTable",
+      "tableName": "Boards",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "out"
+    },
+    {
+      "type": "table",
+      "name": "cardsTable",
+      "tableName": "Cards",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "deleteBoardQueue",
+      "queueName": "deleteboard",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "out"
+    },
+    {
+      "type": "table",
+      "name": "usersTable",
+      "tableName": "UsersR",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
