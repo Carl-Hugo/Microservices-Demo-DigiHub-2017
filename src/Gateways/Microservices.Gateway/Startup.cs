@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microservices.Gateway.Services;
 using Microsoft.Extensions.Caching.Memory;
 using System.Net.Http;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Microservices.Gateway
 {
@@ -45,7 +46,6 @@ namespace Microservices.Gateway
             services.AddOptions();
 
             // Add the Auth0 Settings object so it can be injected
-            services.Configure<Auth0Settings>(Configuration.GetSection("Auth0"));
             services.Configure<ServicesHostSettings>(Configuration.GetSection("Services"));
 
             // Gateway services
@@ -77,10 +77,21 @@ namespace Microservices.Gateway
             services.AddDynamicInternalServerError();
             services.AddDynamicInternalServerErrorSwagger();
 
-            // Add framework services.
-            AuthorizationPolicy shouldBeAuthenticated = new AuthorizationPolicyBuilder()
+            // JwtBearer
+            services.AddAuthentication()
+                .AddJwtBearer(options => {
+                    var auth0Settings = Configuration.GetSection("Auth0").Get<Auth0Settings>();
+                    if (auth0Settings == null) { throw new ArgumentNullException(nameof(auth0Settings)); }
+
+                    options.Audience = auth0Settings.ClientId;
+                    options.Authority = $"https://{auth0Settings.Domain}/";
+                });
+
+           // Add framework services.
+           AuthorizationPolicy shouldBeAuthenticated = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
+
             services.AddMvc(options =>
             {
                 options.ConfigureDynamicInternalServerError();
@@ -100,17 +111,10 @@ namespace Microservices.Gateway
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
-            // JwtBearer
-            app.UseJwtBearerAuthentication(new JwtBearerOptions
-            {
-                Audience = auth0Settings.Value.ClientId,
-                Authority = $"https://{auth0Settings.Value.Domain}/",
-            });
 
             app.UseMvc();
 

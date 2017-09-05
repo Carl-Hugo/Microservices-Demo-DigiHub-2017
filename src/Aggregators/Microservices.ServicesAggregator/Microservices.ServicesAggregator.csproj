@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>5acdd9ba-b96f-41e9-9d48-99b4ec0325b4</UserSecretsId>
     <ApplicationInsightsResourceId>/subscriptions/3b2a14fe-1425-4e9d-b55f-c2eba1253b3f/resourcegroups/MicroservicesDemo2017/providers/microsoft.insights/components/MicroservicesTelemetry</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/3b2a14fe-1425-4e9d-b55f-c2eba1253b3f/resourcegroups/MicroservicesDemo2017/providers/microsoft.insights/components/MicroservicesTelemetry</ApplicationInsightsAnnotationResourceId>
@@ -11,15 +11,14 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
     <PackageReference Include="ForEvolve.DynamicInternalServerError.Swagger" Version="1.0.0-upsilon-00005" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Services\Microservices.Todo.Boards.Api\Microservices.Todo.Boards.Api.csproj" />
     <ProjectReference Include="..\..\Services\Microservices.Todo.Cards.Api\Microservices.Todo.Cards.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Microservices.Users.Read.Api\Microservices.Users.Read.Api.csproj" />
     <ProjectReference Include="..\..\Services\Microservices.Users.Write.Api\Microservices.Users.Write.Api.csproj" />
   </ItemGroup>
   <ItemGroup>
