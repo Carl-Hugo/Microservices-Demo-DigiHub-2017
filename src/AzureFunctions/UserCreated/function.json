@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "name": "myQueueItem",
+      "queueName": "usercreated",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "in"
+    },
+    {
+      "type": "table",
+      "name": "inputTable",
+      "tableName": "UsersW",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "in"
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "UsersR",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
